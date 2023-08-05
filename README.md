@@ -7,12 +7,16 @@
 **Libraries**: <33
 
 - [Dream-Platform](https://github.com/DreamPoland/dream-platform)
+  <br>by [DreamCode](https://github.com/DreamPoland)
 - [Dream-Command](https://github.com/DreamPoland/dream-command)
+  <br>by [DreamCode](https://github.com/DreamPoland)
 - [Dream-Notice](https://github.com/DreamPoland/dream-notice)
+  <br>by [DreamCode](https://github.com/DreamPoland)
 - [Dream-Utilities](https://github.com/DreamPoland/dream-utilities)
   <br>by [DreamCode](https://github.com/DreamPoland)
 
 - [Okaeri-Configs](https://github.com/OkaeriPoland/okaeri-configs)
+  <br>by [Okaeri](https://github.com/OkaeriPoland)
 - [Okaeri-Injector](https://github.com/OkaeriPoland/okaeri-injector)
   <br>by [Okaeri](https://github.com/OkaeriPoland)
 
