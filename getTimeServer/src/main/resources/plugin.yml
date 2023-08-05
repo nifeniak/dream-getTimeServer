@@ -1,0 +1,7 @@
+main: "cc.dreamcode.time.server.BukkitTimeServerPlugin"
+version: "1.0"
+name: "dream-getTimeServer"
+description: "dream-getTimeServer plugin written by dreamcode.cc"
+website: "https://dreamcode.cc"
+author: "nifeno"
+api-version: 1.13
