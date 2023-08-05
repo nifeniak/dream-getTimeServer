@@ -17,7 +17,6 @@ import cc.dreamcode.time.server.hook.DateStartPlaceholder;
 import eu.okaeri.configs.serdes.OkaeriSerdesPack;
 import eu.okaeri.configs.serdes.commons.SerdesCommons;
 import eu.okaeri.configs.yaml.bukkit.serdes.SerdesBukkit;
-import eu.okaeri.tasker.bukkit.BukkitTasker;
 import lombok.Getter;
 import lombok.NonNull;
 
@@ -35,7 +34,6 @@ public final class BukkitTimeServerPlugin extends DreamBukkitPlatform implements
 
     @Override
     public void enable(@NonNull ComponentManager componentManager) {
-        this.registerInjectable(BukkitTasker.newPool(this));
         this.registerInjectable(BukkitCommandProvider.create(this, this.getInjector()));
 
         componentManager.registerResolver(CommandComponentResolver.class);
