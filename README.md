@@ -10,11 +10,11 @@
 - [Dream-Command](https://github.com/DreamPoland/dream-command)
 - [Dream-Notice](https://github.com/DreamPoland/dream-notice)
 - [Dream-Utilities](https://github.com/DreamPoland/dream-utilities)
-  by [DreamCode](https://github.com/DreamPoland)
+- by [DreamCode](https://github.com/DreamPoland)
 
 - [Okaeri-Configs](https://github.com/OkaeriPoland/okaeri-configs)
 - [Okaeri-Injector](https://github.com/OkaeriPoland/okaeri-injector)
-  by [Okaeri](https://github.com/OkaeriPoland)
+- by [Okaeri](https://github.com/OkaeriPoland)
 
 - [Lombok](https://github.com/projectlombok/lombok)
-  by [ProjectLombok](https://github.com/projectlombok)
+- by [ProjectLombok](https://github.com/projectlombok)
