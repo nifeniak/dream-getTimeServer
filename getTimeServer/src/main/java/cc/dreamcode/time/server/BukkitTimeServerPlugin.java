@@ -25,8 +25,6 @@ public final class BukkitTimeServerPlugin extends DreamBukkitPlatform implements
     @Getter
     private static BukkitTimeServerPlugin bukkitTimeServerPlugin;
 
-    private DateStartPlaceholder dateStartPlaceholder;
-
     @Override
     public void load(@NonNull ComponentManager componentManager) {
         bukkitTimeServerPlugin = this;
@@ -48,13 +46,12 @@ public final class BukkitTimeServerPlugin extends DreamBukkitPlatform implements
 
         componentManager.registerComponent(ReloadConfigCommand.class);
 
-        this.dateStartPlaceholder = new DateStartPlaceholder();
-        this.dateStartPlaceholder.register();
+        componentManager.registerComponent(DateStartPlaceholder.class, dateStartPlaceholder -> dateStartPlaceholder.register());
     }
 
     @Override
     public void disable() {
-        this.dateStartPlaceholder.unregister();
+        this.getInject(DateStartPlaceholder.class).ifPresent(dateStartPlaceholder -> dateStartPlaceholder.unregister());
     }
 
     @Override
