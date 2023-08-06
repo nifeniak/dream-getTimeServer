@@ -5,3 +5,5 @@ description: "dream-getTimeServer plugin written by dreamcode.cc"
 website: "https://dreamcode.cc"
 author: "nifeno"
 api-version: 1.13
+depend:
+  - PlaceholderAPI
