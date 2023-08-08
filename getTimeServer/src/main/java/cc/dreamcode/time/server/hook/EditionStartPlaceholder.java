@@ -48,6 +48,6 @@ public class EditionStartPlaceholder extends PlaceholderExpansion {
 
         }
 
-        return "Brak informacji";
+        return this.messageConfig.noInformation;
     }
 }

@@ -25,4 +25,6 @@ public class MessageConfig extends OkaeriConfig {
     @Comment("Tekst który pojawia się przed czasem jeśli edycja juz wystartowała:")
     public String from = "od {TIME}";
 
+    @Comment("Jak serwer nie zostanie znaleziony:")
+    public String noInformation = "Brak informacji";
 }

@@ -1,9 +1,11 @@
 package cc.dreamcode.time.server.hook;
 
+import cc.dreamcode.time.server.config.MessageConfig;
 import cc.dreamcode.time.server.config.PluginConfig;
 import cc.dreamcode.time.server.util.DateUtil;
 import cc.dreamcode.time.server.util.Pair;
 import cc.dreamcode.utilities.TimeUtil;
+import cc.dreamcode.utilities.bukkit.ChatUtil;
 import eu.okaeri.injector.annotation.Inject;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
@@ -13,8 +15,8 @@ import java.util.Map;
 
 public class EditionEndPlaceholder extends PlaceholderExpansion {
 
-
     private @Inject PluginConfig pluginConfig;
+    private @Inject MessageConfig messageConfig;
 
     @NotNull
     public String getIdentifier() {
@@ -38,13 +40,13 @@ public class EditionEndPlaceholder extends PlaceholderExpansion {
                 continue;
             }
 
-            long timeFromDate = DateUtil.timeFromDate(serverDateEntry.getValue().getValue());
+            long timeFromDate = DateUtil.timeFromDate(serverDateEntry.getValue().getKey());
 
-            return System.currentTimeMillis() > timeFromDate ? TimeUtil.convertMills(System.currentTimeMillis() - timeFromDate)
-                    : ("za " + TimeUtil.convertMills((timeFromDate - System.currentTimeMillis())));
+            return System.currentTimeMillis() > timeFromDate ? (ChatUtil.fixColor(this.messageConfig.from.replace("{TIME}", TimeUtil.convertMills(System.currentTimeMillis() - timeFromDate))))
+                    : (ChatUtil.fixColor(this.messageConfig.in.replace("{TIME}", TimeUtil.convertMills((timeFromDate - System.currentTimeMillis())))));
 
         }
 
-        return "Brak informacji";
+        return this.messageConfig.noInformation;
     }
 }
