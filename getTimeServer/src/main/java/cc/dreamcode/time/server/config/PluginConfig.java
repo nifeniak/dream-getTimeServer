@@ -22,8 +22,8 @@ public class PluginConfig extends OkaeriConfig {
     @Comment({
             "Jako pierwszy argument podajesz nazwe serwera, a jako drugi podajesz kiedy odbędzie się start a trzeci to kiedy się skończy edycja. :D",
             "Dostępne placeholdery to: ",
-            " - \"edition_end_<nazwa_serwera>\" - Zwraca kiedy edycja się skończy.",
-            " - \"edition_start_<nazwa_serwera>\" - Zwraca kiedy edycja się zacznie."
+            " - \"editionend_<nazwa_serwera>\" - Zwraca kiedy edycja się skończy.",
+            " - \"editionstart_<nazwa_serwera>\" - Zwraca kiedy edycja się zacznie."
     })
 
     public List<PlaceholderObject> placeholderObjects = Arrays.asList(

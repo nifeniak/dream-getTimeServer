@@ -20,7 +20,7 @@ public class EditionEndPlaceholder extends PlaceholderExpansion {
 
     @NotNull
     public String getIdentifier() {
-        return "edition_end";
+        return "editionend";
     }
 
     @NotNull

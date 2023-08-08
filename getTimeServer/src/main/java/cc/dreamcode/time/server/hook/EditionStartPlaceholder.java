@@ -21,7 +21,7 @@ public class EditionStartPlaceholder extends PlaceholderExpansion {
 
     @NotNull
     public String getIdentifier() {
-        return "edition_start";
+        return "editionstart";
     }
 
     @NotNull
