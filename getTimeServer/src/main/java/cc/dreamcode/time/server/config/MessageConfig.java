@@ -27,4 +27,6 @@ public class MessageConfig extends OkaeriConfig {
 
     @Comment("Jak serwer nie zostanie znaleziony:")
     public String noInformation = "Brak informacji";
+    @Comment("Jak edycja się skończyła:")
+    public String ended = "Edycja się skończyła";
 }

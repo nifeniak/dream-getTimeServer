@@ -46,7 +46,9 @@ public class EditionEndPlaceholder extends PlaceholderExpansion {
 
         long timeFromDate = DateUtil.timeFromDate(placeholderObjectOptional.get().getEnd());
 
-        return System.currentTimeMillis() > timeFromDate ? (ChatUtil.fixColor(this.messageConfig.from.replace("{TIME}", TimeUtil.convertMills(System.currentTimeMillis() - timeFromDate))))
-                : (ChatUtil.fixColor(this.messageConfig.in.replace("{TIME}", TimeUtil.convertMills((timeFromDate - System.currentTimeMillis())))));
+        return System.currentTimeMillis() > timeFromDate
+                ? ChatUtil.fixColor(this.messageConfig.ended)
+                : ChatUtil.fixColor(this.messageConfig.in.replace(
+                        "{TIME}", TimeUtil.convertMills((timeFromDate - System.currentTimeMillis()))));
     }
 }
