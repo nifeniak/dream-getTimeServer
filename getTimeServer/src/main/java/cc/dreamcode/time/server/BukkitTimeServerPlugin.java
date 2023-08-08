@@ -13,12 +13,14 @@ import cc.dreamcode.platform.component.ComponentManager;
 import cc.dreamcode.time.server.config.MessageConfig;
 import cc.dreamcode.time.server.config.PluginConfig;
 import cc.dreamcode.time.server.config.command.ReloadConfigCommand;
-import cc.dreamcode.time.server.hook.DateStartPlaceholder;
+import cc.dreamcode.time.server.hook.EditionEndPlaceholder;
+import cc.dreamcode.time.server.hook.EditionStartPlaceholder;
 import eu.okaeri.configs.serdes.OkaeriSerdesPack;
 import eu.okaeri.configs.serdes.commons.SerdesCommons;
 import eu.okaeri.configs.yaml.bukkit.serdes.SerdesBukkit;
 import lombok.Getter;
 import lombok.NonNull;
+import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 
 public final class BukkitTimeServerPlugin extends DreamBukkitPlatform implements DreamBukkitConfig {
 
@@ -40,23 +42,26 @@ public final class BukkitTimeServerPlugin extends DreamBukkitPlatform implements
 
         componentManager.registerResolver(ConfigurationComponentResolver.class);
         componentManager.registerComponent(MessageConfig.class, messageConfig -> this.getInject(BukkitCommandProvider.class)
-                .ifPresent(bukkitCommandProvider -> bukkitCommandProvider.setRequiredPermissionMessage(messageConfig.noPermission.getText())));
+                .ifPresent(bukkitCommandProvider ->
+                        bukkitCommandProvider.setRequiredPermissionMessage(messageConfig.noPermission.getText().replace("{PERM}", "time.server.command.reload"))));
 
         componentManager.registerComponent(PluginConfig.class, pluginConfig -> componentManager.setDebug(pluginConfig.debug));
 
         componentManager.registerComponent(ReloadConfigCommand.class);
 
-        componentManager.registerComponent(DateStartPlaceholder.class, dateStartPlaceholder -> dateStartPlaceholder.register());
+        componentManager.registerComponent(EditionEndPlaceholder.class, PlaceholderExpansion::register);
+        componentManager.registerComponent(EditionStartPlaceholder.class, PlaceholderExpansion::register);
     }
 
     @Override
     public void disable() {
-        this.getInject(DateStartPlaceholder.class).ifPresent(dateStartPlaceholder -> dateStartPlaceholder.unregister());
+        this.getInject(EditionEndPlaceholder.class).ifPresent(PlaceholderExpansion::unregister);
+        this.getInject(EditionStartPlaceholder.class).ifPresent(PlaceholderExpansion::unregister);
     }
 
     @Override
     public @NonNull DreamVersion getDreamVersion() {
-        return DreamVersion.create("dream-getTimeServer", "1.0", "nifeno");
+        return DreamVersion.create("dream-getTimeServer", "1.0", "nifeniak");
     }
 
     @Override

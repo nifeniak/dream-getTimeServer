@@ -16,6 +16,13 @@ import eu.okaeri.configs.annotation.*;
 @Names(strategy = NameStrategy.HYPHEN_CASE, modifier = NameModifier.TO_LOWER_CASE)
 public class MessageConfig extends OkaeriConfig {
 
-    public BukkitNotice noPermission = new BukkitNotice(MinecraftNoticeType.CHAT, "&cNie posiadasz uprawnien.");
+
+    public BukkitNotice noPermission = new BukkitNotice(MinecraftNoticeType.CHAT, "&cNie posiadasz uprawnien. &8(&4{PERM}&8)");
     public BukkitNotice successfullyReloaded = new BukkitNotice(MinecraftNoticeType.CHAT, "&aPomyślnie przeładowano!");
+
+    @Comment("Tekst który pojawia się przed czasem jeśli edycja jeszcze nie wystartowała:")
+    public String in = "za {TIME}";
+    @Comment("Tekst który pojawia się przed czasem jeśli edycja juz wystartowała:")
+    public String from = "od {TIME}";
+
 }

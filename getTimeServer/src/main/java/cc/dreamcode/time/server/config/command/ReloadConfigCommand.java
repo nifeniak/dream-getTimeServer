@@ -13,6 +13,7 @@ import java.util.List;
 @RequiredPermission(permission = "time.server.command.reload")
 public class ReloadConfigCommand extends BukkitCommand {
 
+
     private @Inject PluginConfig pluginConfig;
     private @Inject MessageConfig messageConfig;
 
