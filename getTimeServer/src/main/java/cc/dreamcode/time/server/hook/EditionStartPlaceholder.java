@@ -47,7 +47,7 @@ public class EditionStartPlaceholder extends PlaceholderExpansion {
 
         long timeFromDate = DateUtil.timeFromDate(placeholderObjectOptional.get().getStart());
 
-        return System.currentTimeMillis() > timeFromDate ? (ChatUtil.fixColor(this.messageConfig.from.replace("{TIME}", TimeUtil.convertSeconds(System.currentTimeMillis() - timeFromDate))))
-                : (ChatUtil.fixColor(this.messageConfig.in.replace("{TIME}", TimeUtil.convertSeconds((timeFromDate - System.currentTimeMillis())))));
+        return System.currentTimeMillis() > timeFromDate ? (ChatUtil.fixColor(this.messageConfig.from.replace("{TIME}", TimeUtil.convertMills(System.currentTimeMillis() - timeFromDate))))
+                : (ChatUtil.fixColor(this.messageConfig.in.replace("{TIME}", TimeUtil.convertMills((timeFromDate - System.currentTimeMillis())))));
     }
 }
