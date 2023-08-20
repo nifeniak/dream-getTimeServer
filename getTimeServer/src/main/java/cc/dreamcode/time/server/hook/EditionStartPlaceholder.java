@@ -2,8 +2,8 @@ package cc.dreamcode.time.server.hook;
 
 import cc.dreamcode.time.server.config.MessageConfig;
 import cc.dreamcode.time.server.config.PluginConfig;
-import cc.dreamcode.time.server.config.datestart.PlaceholderObject;
 import cc.dreamcode.time.server.util.DateUtil;
+import cc.dreamcode.time.server.util.Pair;
 import cc.dreamcode.utilities.TimeUtil;
 import cc.dreamcode.utilities.bukkit.ChatUtil;
 import eu.okaeri.injector.annotation.Inject;
@@ -11,7 +11,7 @@ import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Optional;
+import java.util.Map;
 
 public class EditionStartPlaceholder extends PlaceholderExpansion {
 
@@ -36,18 +36,17 @@ public class EditionStartPlaceholder extends PlaceholderExpansion {
 
     @Override
     public String onRequest(OfflinePlayer player, @NotNull String params) {
-        Optional<PlaceholderObject> placeholderObjectOptional = this.pluginConfig.placeholderObjects
-                .stream()
-                .filter(placeholderObject -> placeholderObject.getKey().equalsIgnoreCase(params))
-                .findFirst();
+        for (Map.Entry<String, Pair> entry : this.pluginConfig.pairMap.entrySet()) {
+            if (entry.getKey().equalsIgnoreCase(params)) {
+                long timeFromDate = DateUtil.timeFromDate(entry.getValue().getStart());
 
-        if (!placeholderObjectOptional.isPresent()) {
-            return this.messageConfig.noInformation;
+                return ChatUtil.fixColor(System.currentTimeMillis() > timeFromDate
+                        ? this.messageConfig.ended.replace("{TIME}",
+                        TimeUtil.convertMills(System.currentTimeMillis() - timeFromDate))
+                        : this.messageConfig.in.replace("{TIME}",
+                        TimeUtil.convertMills(timeFromDate - System.currentTimeMillis())));
+            }
         }
-
-        long timeFromDate = DateUtil.timeFromDate(placeholderObjectOptional.get().getStart());
-
-        return System.currentTimeMillis() > timeFromDate ? (ChatUtil.fixColor(this.messageConfig.from.replace("{TIME}", TimeUtil.convertMills(System.currentTimeMillis() - timeFromDate))))
-                : (ChatUtil.fixColor(this.messageConfig.in.replace("{TIME}", TimeUtil.convertMills((timeFromDate - System.currentTimeMillis())))));
+        return this.messageConfig.noInformation;
     }
 }

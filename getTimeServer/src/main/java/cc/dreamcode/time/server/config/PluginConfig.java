@@ -1,12 +1,12 @@
 package cc.dreamcode.time.server.config;
 
 import cc.dreamcode.platform.bukkit.component.configuration.Configuration;
-import cc.dreamcode.time.server.config.datestart.PlaceholderObject;
+import cc.dreamcode.time.server.util.Pair;
+import cc.dreamcode.utilities.builder.MapBuilder;
 import eu.okaeri.configs.OkaeriConfig;
 import eu.okaeri.configs.annotation.*;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Map;
 
 @Configuration(
         child = "config.yml"
@@ -26,10 +26,8 @@ public class PluginConfig extends OkaeriConfig {
             " - \"editionstart_<nazwa_serwera>\" - Zwraca kiedy edycja się zacznie."
     })
 
-    public List<PlaceholderObject> placeholderObjects = Arrays.asList(
-
-            new PlaceholderObject("survival", "10/09/2023 18:00:00", "11/09/2023 18:00:00"),
-            new PlaceholderObject("earthsmp", "11/11/2023 18:00:00", "11/12/2023 18:00:00")
-
-    );
+    public Map<String, Pair> pairMap = new MapBuilder<String, Pair>()
+            .put("survival", new Pair("10/09/2023 18:00:00", "11/09/2023 18:00:00"))
+            .put("earthsmp", new Pair("11/09/2023 18:00:00", "11/11/2023 18:00:00"))
+            .build();
 }
