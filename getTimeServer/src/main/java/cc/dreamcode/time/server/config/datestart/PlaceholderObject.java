@@ -1,11 +1,8 @@
 package cc.dreamcode.time.server.config.datestart;
 
-import eu.okaeri.configs.OkaeriConfig;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = false)
-public @Data class PlaceholderObject extends OkaeriConfig {
+public @Data class PlaceholderObject {
 
     private final String key;
 

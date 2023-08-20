@@ -13,6 +13,7 @@ import cc.dreamcode.platform.component.ComponentManager;
 import cc.dreamcode.time.server.config.MessageConfig;
 import cc.dreamcode.time.server.config.PluginConfig;
 import cc.dreamcode.time.server.config.command.ReloadConfigCommand;
+import cc.dreamcode.time.server.config.datestart.PlaceholderObjectSerdes;
 import cc.dreamcode.time.server.hook.EditionEndPlaceholder;
 import cc.dreamcode.time.server.hook.EditionStartPlaceholder;
 import eu.okaeri.configs.serdes.OkaeriSerdesPack;
@@ -69,6 +70,7 @@ public final class BukkitTimeServerPlugin extends DreamBukkitPlatform implements
         return registry -> {
             registry.register(new SerdesBukkit());
             registry.register(new SerdesCommons());
+            registry.register(new PlaceholderObjectSerdes());
             registry.register(new BukkitNoticeSerdes());
         };
     }
