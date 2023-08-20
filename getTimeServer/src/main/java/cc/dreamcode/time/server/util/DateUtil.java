@@ -14,7 +14,6 @@ public class DateUtil {
             FORMAT.setTimeZone(TimeZone.getTimeZone("CET"));
             date = FORMAT.parse(s);
         } catch (ParseException e) {
-            e.printStackTrace();
             return 0L;
         }
         return date.getTime();

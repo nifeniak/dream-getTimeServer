@@ -13,7 +13,6 @@ import java.util.List;
 @RequiredPermission(permission = "time.server.command.reload")
 public class ReloadConfigCommand extends BukkitCommand {
 
-
     private @Inject PluginConfig pluginConfig;
     private @Inject MessageConfig messageConfig;
 
@@ -23,8 +22,8 @@ public class ReloadConfigCommand extends BukkitCommand {
 
     @Override
     public void content(@NonNull CommandSender sender, @NonNull String[] args) {
-        this.messageConfig.load();
         this.pluginConfig.load();
+        this.messageConfig.load();
         this.messageConfig.successfullyReloaded.send(sender);
     }
 
