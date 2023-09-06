@@ -9,7 +9,7 @@ dependencies {
 
     compileOnly 'me.clip:placeholderapi:2.11.3'
 
-    implementation "cc.dreamcode.platform:core:1.9.4"
+    implementation "cc.dreamcode.platform:core:1.9.6-pre.4"
     implementation "cc.dreamcode.platform:bukkit:1.9.4"
     implementation "cc.dreamcode.platform:bukkit-command:1.9.4"
     implementation "cc.dreamcode.platform:bukkit-config:1.9.4"
